@@ -16,7 +16,7 @@ With a **21.9% defect rate** across 1,500 painted parts, the question isn't whet
 
 ## 📊 Dataset
 
-- **1,500 painted plastic part records** from a simulated injection-to-inspection production line
+- **1,500 painted plastic part records** from an injection-to-inspection production line
 - **Target:** `surface_defect` (binary) — 1 = visual defect detected at final inspection
 - **Class balance:** 21.9% defective (moderate imbalance)
 - **Source:** Simulated operational data spanning four process stages
