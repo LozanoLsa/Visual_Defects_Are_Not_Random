@@ -1,0 +1,180 @@
+PROJECT: Visual_Defects_Are_Not_Random
+TITLE: Data Sources & Feature Engineering
+
+--------------------------------------------------
+OVERVIEW:
+This dataset integrates process parameters, environmental conditions, and material handling variables from a real industrial painting process.
+
+The objective is to identify and predict surface defects by understanding how process variability and handling conditions impact final quality.
+
+--------------------------------------------------
+DATA SOURCES AND VARIABLE ORIGIN:
+
+1. THERMAL / PROCESS CONTROL SYSTEM
+Variables:
+- regrind_pct
+- resin_temp_c
+- cooling_time_s
+
+Taken from:
+Injection molding and material preparation process logs.
+
+Reason:
+Material composition and thermal conditions directly affect surface integrity. Variations in resin temperature and cooling time influence part stability and defect formation.
+
+--------------------------------------------------
+2. PAINTING PROCESS PARAMETERS
+Variables:
+- paint_viscosity_cp
+- film_thickness_um
+
+Taken from:
+Paint preparation system and in-line quality measurements.
+
+Reason:
+Paint viscosity and film thickness are critical for achieving uniform coverage. Deviations can lead to visual defects such as orange peel, runs, or insufficient coating.
+
+--------------------------------------------------
+3. ENVIRONMENTAL CONDITIONS (PAINT BOOTH)
+Variables:
+- booth_humidity_pct
+
+Taken from:
+Paint booth environmental monitoring system.
+
+Reason:
+Humidity affects paint adhesion, drying behavior, and surface finish quality.
+
+--------------------------------------------------
+4. PRE-PROCESS HANDLING / STORAGE
+Variables:
+- pre_paint_storage_hrs
+
+Taken from:
+Material staging and buffer storage records prior to painting.
+
+Reason:
+Extended storage time can introduce contamination, moisture absorption, or surface degradation.
+
+--------------------------------------------------
+5. MATERIAL HANDLING CONDITIONS
+Variables:
+- num_handlings
+- container_type
+- part_protection
+
+Taken from:
+Internal logistics and handling process records.
+
+Reason:
+Handling frequency and protection methods influence the risk of scratches, contamination, and surface damage before painting.
+
+--------------------------------------------------
+6. TARGET VARIABLE (QUALITY INSPECTION)
+Variables:
+- surface_defect
+
+Taken from:
+Final visual inspection records (OK / NOK classification).
+
+Reason:
+Represents whether the part exhibits a surface defect after the painting process.
+
+--------------------------------------------------
+VARIABLE-BY-VARIABLE SUMMARY:
+
+regrind_pct
+Taken from:
+Material composition records
+Why it was included:
+Higher regrind content can affect material consistency and surface quality.
+
+resin_temp_c
+Taken from:
+Injection process monitoring
+Why it was included:
+Temperature impacts material flow and surface finish.
+
+cooling_time_s
+Taken from:
+Molding cycle data
+Why it was included:
+Improper cooling can lead to internal stresses and surface defects.
+
+paint_viscosity_cp
+Taken from:
+Paint preparation system
+Why it was included:
+Controls coating behavior and surface uniformity.
+
+film_thickness_um
+Taken from:
+In-line thickness measurements
+Why it was included:
+Too thin or too thick coatings can generate defects.
+
+booth_humidity_pct
+Taken from:
+Environmental sensors
+Why it was included:
+Humidity affects drying and adhesion.
+
+pre_paint_storage_hrs
+Taken from:
+Material staging records
+Why it was included:
+Long exposure before painting increases contamination risk.
+
+num_handlings
+Taken from:
+Handling process tracking
+Why it was included:
+More handling increases probability of surface damage.
+
+container_type
+Taken from:
+Logistics configuration records
+Why it was included:
+Different containers offer different levels of protection.
+
+part_protection
+Taken from:
+Handling procedure definition
+Why it was included:
+Protected vs unprotected parts behave differently in defect risk.
+
+surface_defect
+Taken from:
+Quality inspection results
+Why it was included:
+Defines the outcome variable for classification.
+
+--------------------------------------------------
+FEATURE ENGINEERING LOGIC:
+
+The dataset combines process parameters, environmental conditions, and handling factors to capture the full lifecycle of the part before final inspection.
+
+Each variable was selected due to its direct or indirect influence on surface quality.
+
+--------------------------------------------------
+BUSINESS LOGIC:
+
+Surface defects are not random.
+
+They are the result of interactions between material conditions, process parameters, environment, and handling practices.
+
+Understanding these relationships allows early intervention before defects occur.
+
+--------------------------------------------------
+GOAL:
+
+Predict and reduce surface defects by:
+- Identifying critical process variables
+- Improving quality at the source (Jidoka)
+- Reducing scrap and rework
+- Stabilizing the painting process
+
+--------------------------------------------------
+NOTE:
+
+Data originates from an industrial painting process, integrating material preparation, process control, environmental monitoring, and handling records.
